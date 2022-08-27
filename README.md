@@ -11,7 +11,7 @@ Currently, only `obj` files are supported.
 ## Building
 
 - Requirements:
-    - `C++ 17` (Was not tested with previous standards);
+    - `C++ 17`;
     - `GLFW 3`;
-    - `CMAKE 3.10+`;
+    - `CMAKE >= 3.10`;
 

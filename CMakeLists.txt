@@ -16,17 +16,13 @@ add_library(constants src/constants.cpp)
 add_library(io src/io.cpp)
 add_library(matrix4 src/matrix4.cpp)
 add_library(model_3d src/model_3d/mesh_model.cpp)
-add_library(opengl_wrapper 
-    src/opengl_wrapper/message_callback.cpp 
-    src/opengl_wrapper/framebuffer.cpp 
-    src/opengl_wrapper/texture.cpp 
-    src/opengl_wrapper/vertex_array_object.cpp 
-    src/opengl_wrapper/shader_program.cpp)
-add_library(events 
-    src/events/event_dispatcher.cpp 
-    src/events/event_listener.cpp 
-    src/events/mouse_events.cpp 
-    src/events/keyboard_events.cpp)
+
+file(GLOB opengl_wrapper_SRC src/opengl_wrapper/*.cpp)
+add_library(opengl_wrapper ${opengl_wrapper_SRC})
+
+file(GLOB events_SRC src/events/*.cpp)
+add_library(events ${events_SRC})
+
 add_library(obj_loader src/obj_loader.cpp)
 add_library(str_tools src/str_tools.cpp)
 add_executable(viewmodel src/main.cpp)

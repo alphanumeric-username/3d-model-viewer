@@ -30,9 +30,7 @@ void MeshModel::set_mouse_listener(std::shared_ptr<MouseListener> mouse_listener
 void MeshModel::send_to_gpu() {
     shader_program_.use();
 
-    std::cerr << "MeshModel::send_to_gpu:   Loop start\n";
     for(auto& mesh : meshes_) {
-        std::cerr << "MeshModel::send_to_gpu:   Setting VAO\n";
         VertexArrayObject vao{};
         vao.bind();
         vao.set_attribute(shader_program_.get_attrib_location("a_position"), mesh.positions, 3);
@@ -42,7 +40,6 @@ void MeshModel::send_to_gpu() {
 
         vaos_.emplace_back(vao);
 
-        std::cerr << "MeshModel::send_to_gpu:   Setting uniforms\n";
         if(mesh.material.has_map_Ka) {
             Texture map_Ka{};
             map_Ka.bind();
